@@ -16,7 +16,7 @@ async function createVehicle(req){
     VALUES
     (?, ?, ?, ?)`
 
-    const result = await dq.query(sql, [req.plate, req.model, req.color, req.year]);
+    const result = await db.query(sql, [req.plate, req.model, req.color, req.year]);
     
     const message = (!result.affectedRows) ? 'Erro ao cadastrar o veículo!' : 'Veículo cadastrado com sucesso!'
 

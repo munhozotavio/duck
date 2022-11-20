@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Mysql config file
+sql_setup/config.js
