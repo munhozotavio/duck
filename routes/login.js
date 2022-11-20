@@ -3,7 +3,7 @@ const router = express.Router();
 
 const loginService = require('./../services/login');
 
-router.post("/", async (req, res, next) => {
+router.post("/create", async (req, res, next) => {
     try {
         res.json(await loginService.createUser(req.body));
     } catch (err) {
@@ -11,7 +11,7 @@ router.post("/", async (req, res, next) => {
     }
 });
 
-router.get('/', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     try {
         res.json(await loginService.executeLogin(req.body))
     } catch (err) {
