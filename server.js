@@ -7,43 +7,18 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
 
-const loginService = require('./services/login');
-const carsService = require('./services/vehicles');
+const location = require("./routes/coordinates");
+const cars = require("./routes/cars");
+const login = require("./routes/login");
 
-app.post("/login", async (req, res, next) => {
-    try {
-        res.json(await loginService.createUser(req.body));
-    } catch (err) {
-        next(err);
-    }
-});
+app.use("/location", location);
 
-app.get('/login', async (req, res, next) => {
-    try {
-        res.json(await loginService.executeLogin(req.body))
-    } catch (err) {
-        next (err);
-    }
-});
+app.use("/cars", cars);
 
-app.post("/cars", async (req, res, next) => {
-    try {
-        res.json(await carsService.createVehicle(req.body));
-    } catch (err) {
-        next(err);
-    }
-});
-
-app.get("/cars", async (req, res, next) => {
-    try {
-        res.json(await carsService.getVehicles());
-    } catch (e) {
-        next(e);
-    }
-});
+app.use("/login", login);
 
 app.use("/", (req, res, next) => {
-    res.send("Teste");
+    res.send("There is nothing to do here");
 });
 
 app.listen(8080, () => console.log("API IS RUNNING"));

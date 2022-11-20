@@ -18,18 +18,19 @@ const vehicleTable = `CREATE TABLE IF NOT EXISTS vehicle(
     PRIMARY KEY(plate)
 );`
 
-const coordTable = `CREATE TABLE IF NOT EXISTS coordinates(
+const coordTable = `CREATE TABLE IF NOT EXISTS mocked_localization(
     id int NOT NULL AUTO_INCREMENT,
-    plate varchar(10) NOT NULL,
-    lat float(10,7) NOT NULL, 
-    lng float(10,7) NOT NULL,
+    car_id VARCHAR(255) NOT NULL,
+    lat VARCHAR(255) NOT NULL, 
+    lng VARCHAR(255) NOT NULL,
+    instant DATETIME DEFAULT now() NOT NULL,
     PRIMARY KEY(id),
-    FOREIGN KEY (plate) REFERENCES vehicle(plate)
+    FOREIGN KEY (car_id) REFERENCES vehicle(plate)
 );`
 
 
 //db.test_connection();
 
 db.query(userTable);
-//db.query(vehicleTable);
-//db.query(coordTable);
+db.query(vehicleTable);
+db.query(coordTable);
