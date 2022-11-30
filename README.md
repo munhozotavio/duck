@@ -77,7 +77,8 @@ A descrição completa do projeto pode ser encontrada no link <a href="https://g
   - cors
   - body-parser
   - bcrypt
-  - uuid
+  - uuid 
+ 
 Todas as dependências e suas versões podem ser encontradas no arquivo packase.json 
  
 #### Como colocar no ar, como testar, etc
@@ -86,7 +87,7 @@ Todas as dependências e suas versões podem ser encontradas no arquivo packase.
   - Depois disso é preciso inserir as informações do servidor de banco de dados no arquivo /sql_setup/config.js //Não commitar essas alterações
   - Criar um arquivo .env e adicionar a variável <code>GOOGLE_API_KEY="sua_chave_api"</code>
   - Rodar o comando <code>node sql_setup/create_tables.js</code> para criar as tabelas necessárias no banco de dados
-  - Rodar o servidor <code>npm run local</code> ou <code>npm run server.js</code> (recomendo usar o primeiro)
+  - Rodar o servidor <code>npm run local</code> ou <code>node server.js</code> (recomendo usar o primeiro)
 - Com o ambiente definido você pode acessar as rotas:
   - /login (POST)
   - /login/create (POST)
